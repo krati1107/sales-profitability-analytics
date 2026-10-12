@@ -42,7 +42,6 @@ sales-profitability-analytics/
 ├── LICENSE
 └── README.md
 
-
 ---
 
 ## 5. How to Run
@@ -64,6 +63,30 @@ KPIs: revenue, orders, AOV, CLV, MoM growth
 Root-cause analysis: freight % by state, region, category, weight, and same-state vs cross-state shipping
 
 Dashboard: 3-page Power BI report
+
+7. Analysis Questions
+All findings are reproducible by running sql/02_analysis_queries.sql. Key questions the analysis answers:
+
+#	Question	Query
+1	How has revenue changed month over month across 2017–2018?	Q1, Q2
+2	What share of product price goes to freight, and how has that moved?	Q3, Q4
+3	Which states carry the highest freight burden relative to product price?	Q6, Q7
+4	How much more do cross-state orders cost in freight than same-state?	Q13
+5	How does late delivery affect customer review scores?	Q25
+Run the queries above against the Olist dataset to reproduce the findings. Insights and the Power BI dashboard will be added after final review.
+
+8. Limitations
+No cost-of-goods data, so margin is a proxy (see Section 3)
+
+Early 2016 and late 2018 months have very few orders — trends use 2017-01 to 2018-08
+
+Most customers buy only once, so CLV here is historical spend, not a prediction
+
+9. License
+MIT — see LICENSE.
+
+   
+
 
    
 
