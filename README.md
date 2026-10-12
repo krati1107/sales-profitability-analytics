@@ -44,6 +44,7 @@ Cleaning view: only delivered orders, English category names, region mapping, la
 KPIs: revenue, orders, AOV, CLV, MoM growth
 Root cause analysis: freight % by state, region, category, weight, and same-state vs cross-state shipping
 Dashboard: 3-page Power BI report
+
 7. Key Findings ← FILL THESE WITH YOUR OWN RESULTS
 
 Run the queries first, then replace every [ ] below with real numbers.
@@ -58,3 +59,62 @@ Run the queries first, then replace every [ ] below with real numbers.
 No cost data, so margin is a proxy (see section 3)
 Early 2016 and late 2018 months have very few orders, so trends use 2017-01 to 2018-08
 Most customers buy only once, so CLV here is historical spend and not a prediction
+
+SELECT DATE_FORMAT(o.order_purchase_timestamp,'%Y-%m') AS month,
+       ROUND(SUM(oi.price)/1000, 2) AS revenue_k
+FROM orders o JOIN order_items oi ON o.order_id = oi.order_id
+WHERE o.order_status = 'delivered'
+  AND o.order_purchase_timestamp >= '2017-01-01'
+  AND o.order_purchase_timestamp <  '2018-09-01'
+GROUP BY month ORDER BY month;
+
+ Overall freight % + first/last month:
+ SELECT DATE_FORMAT(o.order_purchase_timestamp,'%Y-%m') AS month,
+       ROUND(100 * SUM(oi.freight_value) / SUM(oi.price), 2) AS freight_pct
+FROM orders o JOIN order_items oi ON o.order_id = oi.order_id
+WHERE o.order_status = 'delivered'
+  AND o.order_purchase_timestamp >= '2017-01-01'
+  AND o.order_purchase_timestamp <  '2018-09-01'
+GROUP BY month ORDER BY month;
+
+ Freight % by state (top 5):
+ SELECT c.customer_state,
+       ROUND(100 * AVG(oi.freight_value) / AVG(oi.price), 2) AS freight_pct,
+       COUNT(DISTINCT o.order_id) AS n
+FROM orders o
+JOIN order_items oi ON o.order_id = oi.order_id
+JOIN customers c ON o.customer_id = c.customer_id
+WHERE o.order_status = 'delivered'
+GROUP BY c.customer_state
+HAVING n > 100
+ORDER BY freight_pct DESC LIMIT 5;
+
+Cross-state vs same-state freight:
+SELECT
+  ROUND(AVG(CASE WHEN c.customer_state = s.seller_state THEN oi.freight_value END), 2) AS same_state,
+  ROUND(AVG(CASE WHEN c.customer_state <> s.seller_state THEN oi.freight_value END), 2) AS cross_state
+FROM orders o
+JOIN order_items oi ON o.order_id = oi.order_id
+JOIN customers c ON o.customer_id = c.customer_id
+JOIN sellers s ON oi.seller_id = s.seller_id
+WHERE o.order_status = 'delivered';
+
+Late vs on-time review scores:
+SELECT
+  ROUND(AVG(CASE WHEN o.order_delivered_customer_date <= o.order_estimated_delivery_date THEN r.review_score END), 2) AS on_time,
+  ROUND(AVG(CASE WHEN o.order_delivered_customer_date >  o.order_estimated_delivery_date THEN r.review_score END), 2) AS late
+FROM orders o
+JOIN order_reviews r ON o.order_id = r.order_id
+WHERE o.order_status = 'delivered' AND o.order_delivered_customer_date IS NOT NULL;
+
+
+
+
+
+ 
+
+
+ 
+
+
+
