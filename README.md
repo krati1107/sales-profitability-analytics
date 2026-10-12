@@ -71,8 +71,19 @@ sales-profitability-analytics/
 - **Dashboard:** 3-page Power BI report
 
 ---
+## 7 Dashboard Preview
 
-## 7. Analysis Questions
+### Page 1 — Sales Overview
+![Sales Overview](dashboard/page1.png)
+
+### Page 2 — Freight Root Cause
+![Freight Root Cause](dashboard/page2.png)
+
+### Page 3 — Delivery & Reviews
+![Delivery & Reviews](dashboard/page3.png)
+
+
+## 8. Analysis Questions
 
 All findings are reproducible by running `sql/02_analysis_queries.sql`. Key questions the analysis answers:
 
@@ -88,7 +99,7 @@ All findings are reproducible by running `sql/02_analysis_queries.sql`. Key ques
 
 ---
 
-## 8. Limitations
+## 9. Limitations
 
 - No cost-of-goods data, so margin is a proxy (see Section 3)
 - Early 2016 and late 2018 months have very few orders — trends use 2017-01 to 2018-08
@@ -96,7 +107,7 @@ All findings are reproducible by running `sql/02_analysis_queries.sql`. Key ques
 
 ---
 
-## 9. License
+## 10. License
 
 MIT — see [LICENSE](LICENSE).
    
