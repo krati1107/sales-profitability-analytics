@@ -72,15 +72,9 @@ sales-profitability-analytics/
 
 ---
 ## 7 Dashboard Preview
-
-### Page 1 — Sales Overview
-![Sales Overview](dashboard/page1.png)
-
-### Page 2 — Freight Root Cause
-![Freight Root Cause](dashboard/page2.png)
-
-### Page 3 — Delivery & Reviews
-![Delivery & Reviews](dashboard/page3.png)
+![Sales Overview](dashboard/Screenshot%20(44).png)
+![Freight Root Cause](dashboard/Screenshot%20(45).png)
+![Delivery & Reviews](dashboard/Screenshot%20(46).png)
 
 
 ## 8. Analysis Questions
