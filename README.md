@@ -112,6 +112,19 @@ The project uses the [Olist Brazilian E-Commerce Public Dataset](https://www.kag
 
 The dataset does **not** contain the actual cost of goods sold (COGS). Therefore, true profit and profit margin cannot be calculated. This project uses **product price minus freight value** as a freight-adjusted revenue proxy, not as actual profit.
 
+## 8b. Dashboard Preview
+
+### Page 1 — Executive Overview
+![Executive Overview](dashboard/page1_executive_overview.png)
+
+### Page 2 — Sales Analysis
+![Sales Analysis](dashboard/page2_sales_analysis.png)
+
+### Page 3 — Profitability & Freight Analysis
+![Freight Analysis](dashboard/page3_freight_analysis.png)
+
+*(The full interactive report is available in `dashboard/sales_profitability.pbix`)*
+
 ## 9. Project Status
 
 - ✅ Data loading and PostgreSQL pipeline — complete
