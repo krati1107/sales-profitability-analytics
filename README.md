@@ -119,22 +119,13 @@ The dataset does **not** contain the actual cost of goods sold (COGS). Therefore
 
 
 ### Page 2 — Sales Analysis
-![Sales Analysis](dashboard/page2_sales_analysis.png)
+![Sales Analysis]<img width="1466" height="758" alt="Screenshot 2026-10-22 212459" src="https://github.com/user-attachments/assets/9cbd7ec2-5130-400a-8de0-1700e42058af" />
+
 
 ### Page 3 — Profitability & Freight Analysis
-![Freight Analysis](dashboard/page3_freight_analysis.png)
+![Freight Analysis]<img width="1448" height="802" alt="Screenshot 2026-10-22 212540" src="https://github.com/user-attachments/assets/e91e2ad3-65e0-491b-87d0-9f259cb95c0f" />
 
-*(The full interactive report is available in `dashboard/sales_profitability.pbix`)*
 
-*(The full interactive report is available in `dashboard/sales_profitability.pbix`)*
-
-## 9. Project Status
-
-- ✅ Data loading and PostgreSQL pipeline — complete
-- ✅ SQL analysis scripts (11 files covering orders, products, payments, delivery, profitability, data quality, customers, sellers, geography) — complete
-- 🚧 Power BI dashboard — in progress
-- 🚧 Final insights and business recommendations — pending
-
-## 10. License
+## 9. License
 
 MIT License — see [LICENSE](LICENSE).
