@@ -115,7 +115,8 @@ The dataset does **not** contain the actual cost of goods sold (COGS). Therefore
 ## 8b. Dashboard Preview
 
 ### Page 1 — Executive Overview
-![Executive Overview](dashboard/page1_executive_overview.png)
+![Executive Overview]<img width="1466" height="758" alt="Screenshot 2026-10-22 212459" src="https://github.com/user-attachments/assets/afc6867c-4fca-4111-85ae-806888673d54" />
+
 
 ### Page 2 — Sales Analysis
 ![Sales Analysis](dashboard/page2_sales_analysis.png)
